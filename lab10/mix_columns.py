@@ -24,6 +24,68 @@ def mix_columns(st):
     for i in range(0,4):
         gg=0
         gg^=gmul(0x02,ss[i][0])
+        print(f"02* {st_w_16(ss[i][0])} = {decimalToBinary(gmul(0x02,ss[i][0]),8)}")
+        gg^=gmul(0x03,ss[i][1])
+        print(f"03 * {st_w_16(ss[i][1])} = {decimalToBinary(gmul(0x02,ss[i][1]),8)}")
+        gg^=ss[i][2]
+        print(f"{ss[i][2]} = {decimalToBinary(ss[i][2],8)}")
+        gg^=ss[i][3]
+        print(f"{ss[i][3]} = {decimalToBinary(ss[i][3],8)}")
+        st2.append(gg)
+        print("-------------------------------------")
+        print(gg,'=',bin(gg)[2:],"\n",)
+        
+        gg=0
+        gg^=ss[i][0]
+        print(f"{st_w_16(ss[i][0])} = {decimalToBinary(ss[i][0],8)}")
+        gg^=gmul(0x02,ss[i][1])
+        print(f"02 * {st_w_16(ss[i][1])} = {decimalToBinary(gmul(0x02,ss[i][1]),8)}")
+        gg^=gmul(0x03,ss[i][2])
+        print(f"03 * {st_w_16(ss[i][2])} = {decimalToBinary(gmul(0x02,ss[i][2]),8)}")
+        gg^=ss[i][3]
+        print(f"{st_w_16(ss[i][3])} = {decimalToBinary(ss[i][3],8)}")
+        st2.append(gg)
+        print("-------------------------------------")
+        print(gg,'=',bin(gg)[2:],"\n",)
+        gg=0
+        gg^=ss[i][0]
+        print(f"{st_w_16(ss[i][0])} = {decimalToBinary(ss[i][0],8)}")
+        gg^=ss[i][1]
+        print(f"{st_w_16(ss[i][1])} = {decimalToBinary(ss[i][1],8)}")
+        gg^=gmul(0x02,ss[i][2])
+        print(f"02 * {st_w_16(ss[i][2])} = {decimalToBinary(gmul(0x02,ss[i][2]),8)}")
+        gg^=gmul(0x03,ss[i][3])
+        print(f"03 * {st_w_16(ss[i][3])} = {decimalToBinary(gmul(0x02,ss[i][3]),8)}")
+        st2.append(gg)
+        print("-------------------------------------")
+        print(gg,'=',bin(gg)[2:],"\n",)
+
+        gg=0
+        gg^=gmul(0x03,ss[i][0])
+        print(f"03 * {st_w_16(ss[i][0])} = {decimalToBinary(gmul(0x02,ss[i][0]),8)}")
+        
+        gg^=ss[i][1]
+        print(f"{st_w_16(ss[i][1])} = {decimalToBinary(ss[i][1],8)}")
+        
+        gg^=ss[i][2]
+        print(f"{st_w_16(ss[i][2])} = {decimalToBinary(ss[i][2],8)}")
+
+        gg^=gmul(0x02,ss[i][3])
+        print(f"02 * {st_w_16(ss[i][3])} = {decimalToBinary(gmul(0x02,ss[i][3]),8)}")
+        print("-------------------------------------")        
+        print(gg,'=',bin(gg)[2:],"\n",)
+
+        st2.append(gg)
+                 
+    return st2
+    ss = []
+    st2=[]
+    for i in range(0,4):
+        ss.append(st[i*4:i*4+4])
+    print(ss)
+    for i in range(0,4):
+        gg=0
+        gg^=gmul(0x02,ss[i][0])
         print(f"02* {st_w_16(ss[i][0])} = {decimalToBinary(gg,8)}")
         gg^=gmul(0x03,ss[i][1])
         print(f"03 * {st_w_16(ss[i][1])} = {decimalToBinary(gg,8)}")

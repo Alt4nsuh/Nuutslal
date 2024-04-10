@@ -9,7 +9,7 @@ def keyTable(alp,key):
       print()
     print(ppr[i],end=" ")
   print(len(ppr))
-alp ="qertyhjklnvopqrstuvwxyz"
+alp ="GRAVITYFLSBCDEHKMNOPQUWXZ"
 key="monarchy"
 
 keyTable(alp,key)

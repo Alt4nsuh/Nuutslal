@@ -57,7 +57,7 @@ print("Enter a value for k:")
 k = int(input())
 
 file1 = open("MyFile1.txt", "w")
-file1.write(caeser(k, "krypto"))
+file1.write(caeser(k, realText))
 file1.close()
 
 file1 = open("MyFile2.txt", "w")

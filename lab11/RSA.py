@@ -1,55 +1,40 @@
-import sys
-sys.path.append('C:/A_Hicheel/Python/Ugugdul_nuuh/lab11') 
-import mod
-
 import numpy as np
-abc='abcdefghijklmnopqrstuvwxyz'
-abc+=abc.upper()
-abc+='0123456789 !@#?$'
+from mod import myPow
+
+abc = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 !@#?$'
 print(abc)
-st='How are you?'
+st = 'How are you?'
+print([abc.index(c) for c in st])  
 
-lst=[]
-P=[]
+lst = [abc.index(c) for c in st]
 
-for chr in st:
-    lst.append(abc.index(chr))
-print(lst)
-
-arr = np.array(lst).reshape(-1,2)
+if len(lst) % 2 != 0:
+    lst.append(0) 
+arr = np.array(lst).reshape(-1, 2)
 print(arr)
-for i in arr:
-    st2=i[0]*100+i[1]
-    P.append(st2)
+P = [x[0] * 100 + x[1] for x in arr]
 print(P)
-C=[]
-P1=[]
-p=73; q=151; n=p*q; e=11; et=(p-1)*(q-1); d=pow(e,-1,et)
-print("asa",d)
-lst1=[]
-def RSA(P,p,q):
-    n=p*q; e=11; et=(p-1)*(q-1)
-    for pp in P:
-        C.append(mod.myPow(e,pp,n))
-    for cc in P:
-      pp=mod.myPow(d,cc,n)
-      P1.append(pp)
-      x1=pp//100;x2=pp%100
-      lst1.append(x1);lst1.append(x2)
-    return C
-C= RSA(P,p,q)
-for cc in C:
-    pp=mod.myPow(d,cc,n)
-    P1.append(pp)
-    x1=pp//100;x2=pp%100
-    lst1.append(x1);lst1.append(x2)
-strnew=''
-print(lst1)
 
-for ind in lst1:
-  print(abc[ind])
-  strnew+=abc[ind]
-  
-print("list1",lst1)
-print("p1",P1)
-print(strnew)
+p = 73
+q = 151
+n = p * q
+e = 11
+et = (p - 1) * (q - 1)
+d = pow(e, -1, et)
+print("Decryption key (d):", d)
+
+C = [myPow(x, e, n) for x in P]
+print("Encrypted:", C)
+
+decrypted_indices = [myPow(x, d, n) for x in C]
+print("Decrypted indices:", decrypted_indices)
+
+decrypted_message = []
+for index in decrypted_indices:
+    high = index // 100
+    low = index % 100
+    if high < len(abc): decrypted_message.append(abc[high])
+    if low < len(abc): decrypted_message.append(abc[low])
+
+strnew = ''.join(decrypted_message)
+print("Decrypted message:", strnew)

@@ -45,4 +45,20 @@ def ET(f1):
         f*=el(pp)
     return f
 
-
+def PrimitiveRoot(num):
+    if num == 1:
+        return [0]
+    if num == 2:
+        return [1]
+    eu = gcdExtended(num)
+    root = []
+    for i in range(2, num):
+        if gcd(i, num) == 1:
+            for j in range(1, eu):
+                if (i**j % num == 1) and (j != eu):
+                    break
+            if (i**j % num == 1) and (j == eu):
+                root.append(i)
+                break
+    return root
+print(PrimitiveRoot(27,))

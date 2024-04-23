@@ -1,30 +1,25 @@
-import random as rnd
+import sys
+sys.path.append("C:\\A_Hicheel\\Python\\Ugugdul_nuuh\\lab3")
+from lab3 import lab3
+print(lab3.miller_rabin(3))
+a=3
+q=353
+Xa=97
+Xb=233
+Xd1=12
+Xd2=24
 
-def primitiveRoot(p):
-  prt=[]
+Yd1=pow(a,Xd1,q)
+Yd2=pow(a,Xd2,q)
 
-  for a in range(2,p):
-      for i in range(1,p):
-          pr=pow(a,i,p)
-          if pr==1:
-              break
-      if i==p-1:
-          print(a,end=" ")
+Ya=pow(a,Xa,q)
 
-  return prt
-a=primitiveRoot(257)
+Yb=pow(a,Xb,q)
+def calcK(Y,X,q):
+  K=pow(Y,X,q)
+  return K
 
-q = 257; a=a[10]
-
-Xa = 51
-Ya = pow(a,Xa,q)
-
-st = 'Hello elgamal cipher'
-
-for ch in st:
-    M = ord(ch)
-    k = rnd.randrange(q)
-    K=pow(Ya,k,q)
-    C1=pow(a,k,q)
-    C2=(M*K)%q
-    print(C1,',',C2,end=',')
+print(f"Alice: {calcK(Yd2,Xa,q)}")
+print(f"Bob: {calcK(Yd1,Xb,q)}")
+print(f"Middle Alice: {calcK(Ya,Xd2,q)}")
+print(f"Middle Bob: {calcK(Yb,Xd1,q)}")

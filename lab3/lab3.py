@@ -1,5 +1,7 @@
 #1. Miller Rabin test код бич. Зарим үр дүнг хавсаргах
-from lab2.lab2 import prime_factors
+import sys
+sys.path.append("C:\\A_Hicheel\\Python\\Ugugdul_nuuh\\lab2")
+from lab2 import prime_factors
 from math import gcd
 import random
 def miller_rabin(n):
@@ -31,7 +33,6 @@ def root(a):
 def EulerFunction(N):
  if miller_rabin(N[0]):
   return (N[0]-1)*N[0]**(N[1]-1)
-3-1*3^1-1
 a = 10
 bb=[]
 

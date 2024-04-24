@@ -38,11 +38,11 @@ bb=[]
 
 
 
-print(a," toonii prime factor ",prime_factors(a))
-print("Tsuvaa",root(a))
+# print(a," toonii prime factor ",prime_factors(a))
+# print("Tsuvaa",root(a))
 
-for b in prime_factors(a):
-  if(miller_rabin(b[0])):
-   print(b[0],"prime number mun")
+# for b in prime_factors(a):
+#   if(miller_rabin(b[0])):
+#    print(b[0],"prime number mun")
  
      

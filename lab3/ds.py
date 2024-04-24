@@ -80,8 +80,8 @@ def PrimitiveRoot(modulo):
 #                 break
 #     return root
 
-primes = [i for i in range(2, 100) if MillerRabin(i)]
+# primes = [i for i in range(100, 2000) if MillerRabin(i)]
 # print(primes)
-# print(PrimitiveRoot(27))
+# # print(PrimitiveRoot(27))
 # print(EulerTotientPrime(7, 2))
 # print(EulerTotientList(35))

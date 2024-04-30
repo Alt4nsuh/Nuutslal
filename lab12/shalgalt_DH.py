@@ -27,12 +27,12 @@ def find_x(a, q, Y):
             return x
         x += 1
 
-q = 71
-a = 7
+q = 11
+a = 2
 
 Y = 9
 
-X=5
+X=12
 
 
 YY=calcY(a, X, q)

@@ -3,9 +3,14 @@ sys.path.append("C:\\A_Hicheel\\Python\\Ugugdul_nuuh")
 from lab9.aes import DT
 from lab9.aes import rndAES
 def GCD(x, y): 
-    if y!=0: 
-        x=GCD(y,x%y) 
+    if y != 0: 
+        print(f"{x} = {x//y} * {y} + {x%y}")
+        x = GCD(y, x % y)
     return x
+
+# Example usage
+print(GCD(24140, 40902))
+
 def mood(dtu,dtd):
     gcd=GCD(dtu,dtd)
     if gcd==dtd:

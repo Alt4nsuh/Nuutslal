@@ -15,15 +15,15 @@ print(arr)
 P = [x[0] * 100 + x[1] for x in arr]
 print(P)
 
-p = 73
-q = 151
+p = 3
+q = 11
 n = p * q
-e = 11
+e = 7
 et = (p - 1) * (q - 1)
 d = pow(e, -1, et)
 print("Decryption key (d):", d)
 
-C = [myPow(x, e, n) for x in P]
+C = [myPow(5, e, n) for x in P]
 print("Encrypted:", C)
 
 decrypted_indices = [myPow(x, d, n) for x in C]
